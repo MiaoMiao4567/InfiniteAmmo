@@ -1,7 +1,4 @@
-﻿using Exiled.API.Features;
-using Exiled.API.Features.Items;
-using Exiled.Events.EventArgs.Player;
-using MEC;
+﻿using Exiled.Events.EventArgs.Player;
 
 namespace InfiniteAmmo.Event.PlayerEvent
 {
@@ -9,12 +6,9 @@ namespace InfiniteAmmo.Event.PlayerEvent
     {
         public static void Reload(ReloadingWeaponEventArgs e)
         {
-            Player player = e.Player;
-            Firearm firearm = e.Firearm;
-            Timing.CallDelayed(0.5f, () =>
-            {
-                player.SetAmmo(firearm.AmmoType, (ushort)(firearm.MaxMagazineAmmo + 1));
-            });
+            if (e.Player == null) return;
+            if (e.Firearm.Type == ItemType.ParticleDisruptor) return;
+            e.Player.SetAmmo(e.Firearm.AmmoType, (ushort)((e.Firearm.MaxMagazineAmmo - e.Firearm.MagazineAmmo) + 1));
         }
     }
 }
