@@ -8,7 +8,7 @@ namespace InfiniteAmmo
     {
         public override string Name { get; } = "InfiniteAmmo";
         public override string Author { get; } = "喵喵(QQ:108818013)";
-        public override Version Version { get; } = new Version(1, 0, 2);
+        public override Version Version { get; } = new Version(1, 0, 1);
         public static Plugin Instance;
         public override void OnEnabled()
         {
@@ -17,7 +17,7 @@ namespace InfiniteAmmo
             Exiled.Events.Handlers.Player.ReloadingWeapon += Reloading.Reload;
             Exiled.Events.Handlers.Player.ChangingRole += ChangingRole.OnChangingRole;
             Exiled.Events.Handlers.Player.DroppingAmmo += DropAmmo.OnDropAmmo;
-            Log.Info("InfiniteAmmo V1.0.0 | 已成功加载!");
+            Log.Info("InfiniteAmmo V1.0.1 | 已成功加载!");
         }
 
         public override void OnDisabled()
@@ -26,7 +26,7 @@ namespace InfiniteAmmo
             Exiled.Events.Handlers.Player.ReloadingWeapon -= Reloading.Reload;
             Exiled.Events.Handlers.Player.ChangingRole -= ChangingRole.OnChangingRole;
             Exiled.Events.Handlers.Player.DroppingAmmo -= DropAmmo.OnDropAmmo;
-            Log.Info("InfiniteAmmo V1.0.0 | 已关闭!");
+            Log.Info("InfiniteAmmo V1.0.1 | 已关闭!");
         }
     }
 }
